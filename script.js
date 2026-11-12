@@ -1,23 +1,28 @@
-// BrightPlay sample catalogue. Replace these demo products with your actual inventory.
 const products = [
-  {id:1,name:"Rainbow Stacking Rings",category:"toys",price:1299,image:"https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=700&q=80",tag:"Popular"},
-  {id:2,name:"Soft Plush Teddy",category:"toys",price:1899,image:"https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=700&q=80",tag:"Cute pick"},
-  {id:3,name:"Wooden Learning Blocks",category:"toys",price:1599,image:"https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&fit=crop&w=700&q=80",tag:"Play & learn"},
-  {id:4,name:"Baby Activity Toy",category:"toys",price:999,image:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=700&q=80",tag:"Little joy"},
-  {id:5,name:"Everyday Beauty Set",category:"cosmetics",price:2199,image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80",tag:"Featured"},
-  {id:6,name:"Beauty Essentials",category:"cosmetics",price:1499,image:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=80",tag:"Daily care"},
-  {id:7,name:"Makeup Brush Set",category:"cosmetics",price:1199,image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80",tag:"Beauty pick"},
-  {id:8,name:"Skincare Collection",category:"cosmetics",price:1799,image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80",tag:"Glow time"}
+  {
+    "id": 1,
+    "name": "LOVE Rings",
+    "category": "toys",
+    "price": 1500,
+    "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=700&q=80",
+    "tag": "Popular"
+  },
+  {
+    "id": 8,
+    "name": "Skincare Collection",
+    "category": "cosmetics",
+    "price": 1799,
+    "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80",
+    "tag": "Glow time"
+  }
 ];
-// Correct the placeholder image URL for item 6 to a valid sample beauty image.
-products[5].image = "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=80";
 
+// Product catalogue is managed through the local BrightPlay Admin Dashboard.
 const grid = document.getElementById("productGrid");
 const searchInput = document.getElementById("searchInput");
 const sortSelect = document.getElementById("sortSelect");
 let activeFilter = "all";
 const cart = [];
-
 function renderProducts() {
   let list = products.filter(p => (activeFilter === "all" || p.category === activeFilter) && p.name.toLowerCase().includes(searchInput.value.trim().toLowerCase()));
   if (sortSelect.value === "low") list.sort((a,b) => a.price-b.price);
